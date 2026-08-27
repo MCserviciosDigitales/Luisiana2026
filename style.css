@@ -1,36 +1,41 @@
 /* ==========================================
-   1. CONFIGURACIÓN GENERAL Y PANTALLA
+   1. CONFIGURACIÓN GENERAL Y PANTALLA (OPTIMIZADO MÓVIL)
    ========================================== */
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
   height: 100%;
-  overflow: hidden;
+  height: 100dvh; /* Altura dinámica real para evitar cortes de la barra de Chrome */
   font-family: 'Montserrat', sans-serif;
   background: url('img/fondo.jfif') no-repeat center center fixed;
   background-size: cover;
+  overflow: hidden; /* Mantiene el fondo fijo */
 }
 
 .viewport-wrapper {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding-top: 75px; /* Espacio para que el banner superior no tape el marco */
+  padding-bottom: 50px; /* Espacio para el footer */
 }
 
 /* ==========================================
-   2. MARCO FIJO CENTRAL (Fondo blanco)
+   2. MARCO FIJO CENTRAL (Fondo blanco adaptativo)
    ========================================== */
 .fixed-frame {
   display: block;
-  position: absolute;
-  top: 125px; /* Subimos este valor a 110px */
-  width: 90vw;
+  position: relative; /* Cambiado a relative para alineación fluida en flexbox */
+  width: 92vw;
   max-width: 480px;
-  height: 78vh;
-  max-height: 700px;
+  height: 82vh;
+  max-height: 720px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 30px;
   border: 3px solid #f2d6dc;
@@ -43,23 +48,28 @@ html, body {
    3. ZONA DE SCROLL INTERNO
    ========================================== */
 .scroll-content {
- position: absolute;
-  top: 135px; /* Subimos este valor a 120px */
+  position: absolute;
+  top: 90px; /* Ajustado proporcionalmente dentro del viewport */
+  left: 50%;
+  transform: translateX(-50%);
   width: 86vw;
-  max-width: 450px;
-  height: 74vh;
-  max-height: 660px;
+  max-width: 440px;
+  height: calc(82vh - 30px);
+  max-height: 680px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 20px 15px;
   box-sizing: border-box;
   z-index: 2;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch; /* Scroll fluido en dispositivos móviles */
 }
 
 .scroll-content::-webkit-scrollbar {
   display: none;
 }
 
+/* ==========================================*/
 .card-section {
   position: relative; 
   background: rgba(255, 255, 255, 0.6);
