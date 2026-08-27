@@ -110,3 +110,43 @@ window.addEventListener("click", (e) => {
     window.cerrarWebModal();
   }
 });
+
+/* ==========================================
+   MODAL DE MAPA (GOOGLE MAPS)
+   ========================================== */
+window.abrirMapaModal = function() {
+  console.log("LOG JS: Abriendo mapa de Acapulco Park...");
+  const modal = document.getElementById("modalMapaIframe");
+  const iframe = document.getElementById("iframeMapa");
+  
+  if (!modal || !iframe) {
+    console.error("ERROR JS: No se encontró el modal o el iframe del mapa.");
+    return;
+  }
+
+  // Enlace oficial de inserción de Google Maps para Acapulco Park (Cabo Fariña, Córdoba)
+  iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.587!2d-64.18!3d-31.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a3e06bf50391%3A0x34ed2f4d34454799!2sAcapulco%20Park!5e0!3m2!1ses-419!2sar!4v1";
+  
+  modal.style.setProperty('display', 'flex', 'important');
+  console.log("LOG JS: Mapa abierto con éxito.");
+};
+
+window.cerrarMapaModal = function() {
+  console.log("LOG JS: Cerrando mapa...");
+  const modal = document.getElementById("modalMapaIframe");
+  const iframe = document.getElementById("iframeMapa");
+  
+  if (modal && iframe) {
+    modal.style.display = "none";
+    iframe.src = "";
+    console.log("LOG JS: Mapa cerrado.");
+  }
+};
+
+// Cerrar si hacen clic fuera de la tarjeta del mapa
+window.addEventListener("click", (e) => {
+  const modalMapa = document.getElementById("modalMapaIframe");
+  if (e.target === modalMapa) {
+    window.cerrarMapaModal();
+  }
+});
