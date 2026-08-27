@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cumple & Bautismo de Luisiana</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="scroll-snap.css">
+  <!-- Importamos fuentes de Google Fonts (ejemplo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   <!-- Contenedor de corazones flotantes -->
+<!-- left: Define en qué porcentaje del ancho de la pantalla nace (para que algunos salgan más a la izquierda, otros en el centro, otros a la derecha).-->
+<!-- animation-duration: Lo que tarda en subir (unos más rápidos, otros más lentos). -->
+<!-- animation-delay: El retraso con el que empieza a subir, para que no salgan todos al mismo tiempo en fila. -->
+  <div class="floating-hearts-container">
+  <!-- Lado izquierdo e intermedio -->
+  <div class="heart" style="left: 5%; animation-duration: 12s; animation-delay: 0s;"></div>
+  <div class="heart" style="left: 15%; animation-duration: 10s; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 22%; animation-duration: 14s; animation-delay: 1.5s;"></div>
+  <div class="heart" style="left: 32%; animation-duration: 11s; animation-delay: 4.5s;"></div>
+  
+  <!-- Centro -->
+  <div class="heart" style="left: 45%; animation-duration: 13s; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 52%; animation-duration: 9s; animation-delay: 5s;"></div>
+  
+  <!-- Lado derecho e intermedio -->
+  <div class="heart" style="left: 65%; animation-duration: 12s; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 75%; animation-duration: 10s; animation-delay: 3.5s;"></div>
+
+  <div class="heart" style="left: 85%; animation-duration: 14s; animation-delay: 2.5s;"></div>
+  <div class="heart" style="left: 95%; animation-duration: 11s; animation-delay: 0.5s;"></div>
+</div>
+
+  <!-- Contenedor general que ocupa TODA la pantalla sin scroll exterior -->
+  <div class="viewport-wrapper">
+
+    <!-- 🤍 ESTA ES LA BARRA ROSA TRANSPARENTE SUPERIOR -->
+    <header class="top-banner">
+        <!-- Nombre de la nena -->
+        <span class="banner-text">Luisiana <i class="fa-solid fa-heart sparkle" style="color: #ffffff; font-size: 1.2rem;"></i></span>
+
+        <!-- Reproductor circular minimalista -->
+        <div class="music-player-floating">
+          <button id="play-btn" class="music-icon-btn" onclick="toggleAudio()" title="Reproducir música">
+            <i class="fa-solid fa-play" id="music-icon"></i>
+          </button>
+          
+          <audio id="bg-audio" loop>
+            <source src="audio/You'll Be In My Heart.mp3" type="audio/mp3">
+          </audio>
+        </div>
+        
+        
+    </header>
+
+    
+    <!-- Marco Fijo de Ganso y Flores (No se mueve nunca) -->
+    <div class="fixed-frame">
+      
+    </div>
+
+    <!-- ÁREA INTERNA SCROLLEABLE -->
+    <div class="scroll-content snap-container">
+
+      <!-- SECCIÓN 1 -->
+      <section class="card-section snap-section section-bienvenida ">
+         
+        <p class="title-main">Mi Cumple Y Bautismo</p>
+        <h1 class="subtitle-tag">Luisiana</h1>
+        
+        <div class="photo-frame">
+          <img src="img/lisiana.webp" alt="Luisiana" class="profile-img">
+        </div>
+
+        <p class="intro-text">¡Te espero para celebrar juntos un día lleno de amor y momentos mágicos!</p>
+
+        
+      </section>
+
+      <!-- SECCIÓN 2 -->
+<section class="card-section snap-section section-celebracion">
+  
+  <div class="event-info">
+    <h2 class="section-title"><img src="/img/iglesia.png" alt="Icono" class="event-icon"> Celebración</h2>
+  </div>
+  
+  <div class="event-info">
+    <h3>Santo Bautismo</h3>
+    <p>🗓️ <strong>Fecha:</strong> 10 de Octubre</p>
+    <p>⏰ <strong>Hora:</strong> 17:00 hs</p>
+    <p>📍 <strong>Lugar:</strong> Parroquia X</p>
+    <a href="#" class="btn-action">Ver Ubicación GPS</a>
+  </div>
+
+  <hr class="divider">
+
+  <div class="event-info">
+    <h3 class="event-title-icon"><img src="/img/celebracion.png" alt="Icono" class="event-icon"> Festejos</h3>
+    <p>⏰ <strong>Hora:</strong> 13:30 hs</p>
+    <p>📍 <strong>Lugar:</strong> Salón de Fiestas Acapulco</p>
+    <a href="#" class="btn-action">Ver Ubicación GPS</a>
+  </div>
+</section>
+      <!-- SECCIÓN 3 -->
+<section class="card-section snap-section section-sobres">
+  <div class="event-info">
+    <h2>
+      <img src="/img/sobre1.png" alt="Icono Lluvia de Sobres" class="event-icon">
+      Lluvia de Sobres
+    </h2>
+    <p>"Lo más lindo es compartir este día juntos. Si deseas tener un detalle con efectivo, habrá una caja en un sector especial para depositarlo el día del festejo. ¡Gracias por tanto cariño!"</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="event-info">
+    <h2>
+     <img src="/img/regalo.png" alt="Icono Mesa de Regalos" class="event-icon">Mesa de Regalos</h2>
+     <p>"Si prefieres obsequiarme un presente tradicional en lugar de efectivo, puedes elegir lo que tu corazón te dicte. ¡Cualquier detalle será bien recibido con mucho amor!"</p>
+     
+  </div>
+
+</section>
+
+      <!-- SECCIÓN 4 -->
+      <<section class="card-section snap-section section-sobres">
+       <div class="event-info">
+        <h2 ><img src="/img/whatsapp.png" alt="whatsapp" class="event-icon">Confirmar Asistencia</h2>
+        <p>Por favor confirmá tu presencia antes del 5 de Octubre para organizar mejor nuestro día.</p>
+        
+        <a href="https://wa.me/549351XXXXXXX?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20y%20bautismo%20de%20Luisiana" class="btn-action btn-whatsapp" target="_blank">
+          Confirmar por WhatsApp
+        </a>
+      </section>
+      
+      
+
+    </div>
+<img src="img/pato.png" alt="Ganso" class="goose-decor">
+  </div>
+
+  <!-- 🤍 FOOTER DE AUTORÍA / PROPAGANDA -->
+    <footer class="bottom-footer">
+        <!-- Tus redes sociales o las de tu marca -->
+        <div class="footer-socials">
+            <a href="https://instagram.com/tu_usuario" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com/tu_usuario" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/tu_numero" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <!-- Tu marca y derechos -->
+        <div class="footer-text">
+            <span>Diseño por <strong>Tu Nombre / Marca</strong> • 2026</span>
+        </div>
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>

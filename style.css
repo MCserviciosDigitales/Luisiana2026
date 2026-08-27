@@ -1,0 +1,409 @@
+/* ==========================================
+   1. CONFIGURACIÓN GENERAL Y PANTALLA
+   ========================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background: url('img/fondo.jfif') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.viewport-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================
+   2. MARCO FIJO CENTRAL (Fondo blanco)
+   ========================================== */
+.fixed-frame {
+  display: block;
+  position: absolute;
+  top: 125px; /* Subimos este valor a 110px */
+  width: 90vw;
+  max-width: 480px;
+  height: 78vh;
+  max-height: 700px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  border: 3px solid #f2d6dc;
+  box-shadow: 0 10px 30px rgba(180, 120, 130, 0.25);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==========================================
+   3. ZONA DE SCROLL INTERNO
+   ========================================== */
+.scroll-content {
+ position: absolute;
+  top: 135px; /* Subimos este valor a 120px */
+  width: 86vw;
+  max-width: 450px;
+  height: 74vh;
+  max-height: 660px;
+  overflow-y: auto;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  z-index: 2;
+  scrollbar-width: none;
+}
+
+.scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+.card-section {
+  position: relative; 
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(180, 120, 130, 0.15);
+  padding: 25px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ==========================================
+   4. TIPOGRAFÍA Y ELEMENTOS
+   ========================================== */
+.subtitle-tag {
+  font-family: 'Dancing Script', cursive;
+  font-size: 6rem;
+  color: #c48b94;
+  margin: 0;
+}
+
+.title-main {
+  display: flex;
+  align-items: center;    
+  justify-content: center; 
+  width: 90%;             
+  margin: 0 auto 10px auto;
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1.1rem;       
+  font-weight: 600;
+  color: #8c5b63;          
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+.title-main::before {
+  content: "";
+  flex-grow: 1;            
+  height: 1.5px;           
+  background-color: #d4a5ae; 
+  margin-right: 15px;      
+}
+
+.title-main::after {
+  content: "";
+  flex-grow: 1;            
+  height: 1.5px;
+  background-color: #d4a5ae;
+  margin-left: 15px;       
+}
+
+.title-section {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #8c5b63;
+  margin-bottom: 10px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #736062;
+  margin-top: 10px;
+}
+
+.photo-frame {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #fce4e8, #f3d2d7);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.event-info h2,
+.event-info h3 {
+  display: flex;
+  align-items: center;    
+  justify-content: center; 
+  gap: 20px;              
+  color: #a36b73;
+  margin-bottom: 12px;
+}
+
+.event-info h2 {
+  font-size: 1.4rem; 
+}
+
+.event-info h3 {
+  font-size: 1.3rem; 
+}
+
+.event-icon {
+  width: 60px;            
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;          
+}
+
+.event-info p {
+  margin: 5px 0;
+  color: #665255;
+  font-size: 0.95rem;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #f0d5d8;
+  width: 80%;
+  margin: 15px auto;
+}
+
+.btn-action {
+  display: inline-block;
+  background-color: #d8969f;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-action:hover {
+  background-color: #c48b94;
+}
+
+.btn-whatsapp {
+  background-color: #7ca982;
+}
+
+.btn-whatsapp:hover {
+  background-color: #6a9370;
+}
+
+/* ==========================================
+   5. GANSO DECORATIVO
+   ========================================== */
+.goose-decor {
+  position: absolute;
+  bottom: 20px;
+  right: calc(50% - 355px); 
+  width: 200px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .goose-decor {
+    width: 100px;
+    right: 5vw; 
+    bottom: 30px;
+  }
+}
+
+/* ==========================================
+   6. SCROLL SNAP
+   ========================================== */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 70vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================
+   7. EFECTOS VISUALES Y HEADER (ÚNICO)
+   ========================================== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.8) 2px, transparent 2px);
+  background-size: 60px 60px;
+  animation: glitter 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes glitter {
+  0%   { background-position: 0 0; opacity: 0.5; }
+  50%  { background-position: 30px 30px; opacity: 1; }
+  100% { background-position: 0 0; opacity: 0.5; }
+}
+
+/* Única declaración oficial de la barra superior (con tamaño correcto para que no corte la 'L') */
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(242, 214, 220, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding: 10px 0 18px 0; /* Menos padding para que no sea tan gigante */
+  gap: 4px;
+}
+
+.banner-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffffff 0%, #ffb6c1 30%, #fff 50%, #e07a93 70%, #ffffff 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glitterEffect 3s linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(140, 91, 99, 0.4));
+}
+
+@keyframes glitterEffect {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sparkle {
+  display: inline-block;
+  font-size: 1.2rem;
+  -webkit-text-fill-color: initial;
+  animation: sparkleFlash 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkleFlash {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+  100% { transform: scale(1.2) rotate(15deg); opacity: 1; text-shadow: 0 0 10px #ffffff, 0 0 20px #ffb6c1; }
+}
+
+/* ==========================================
+   8. CORAZONES FLOTANTES
+   ========================================== */
+.floating-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1; 
+  pointer-events: none; 
+}
+
+.heart {
+  position: absolute;
+  bottom: -60px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 105, 180, 0.9); 
+  transform: rotate(-45deg);
+  animation: floatUpHearts linear infinite;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.9); 
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 105, 180, 0.9);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes floatUpHearts {
+  0% {
+    transform: translateY(0) rotate(-45deg) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(-45deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   9. REPRODUCTOR DE MÚSICA (ÚNICO)
+   ========================================== */
+.music-player-floating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -22px; 
+  z-index: 1000;
+}
+
+.music-icon-btn {
+  background-color: #ffffff;
+  border: 1px solid #d4a5ae;
+  color: #8c5b63;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.music-icon-btn:hover {
+  background-color: #fce4e8;
+  color: #5c383f;
+  transform: scale(1.1);
+}
