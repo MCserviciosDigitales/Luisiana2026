@@ -645,64 +645,91 @@ body::before {
 }
 
 /* ==========================================
-   ADAPTACIÓN MÓVIL PERFECTA (TELÉFONOS)
+   CORRECCIÓN DEFINITIVA PARA MÓVILES (CELULARES)
    ========================================== */
 @media (max-width: 768px) {
-  /* Permitir que el body haga scroll natural en celular */
+  /* Permitir scroll natural en el celular para que se vea el fondo completo */
   html, body {
     height: auto !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    background-attachment: scroll !important; /* Asegura que el fondo luzca bien en mobile */
   }
 
-  /* Desactivar el marco rígido en celu para que flote libre con el fondo */
+  /* Desactivar el contenedor estricto de PC */
   .viewport-wrapper {
     display: block !important;
     height: auto !important;
-    padding: 120px 0 60px 0 !important; /* Espacio para el banner arriba y footer abajo */
+    padding: 110px 0 80px 0 !important;
   }
 
+  /* Ocultar el marco rígido grande de PC en el celular */
   .fixed-frame {
-    display: none !important; /* Ocultamos el cuadro rígido feo en celu */
+    display: none !important;
   }
 
-  /* La zona de contenido ahora toma el ancho del celu de forma limpia */
+  /* Liberar la zona de scroll para que fluya con el dedo */
   .scroll-content {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 92% !important;
+    width: 88% !important;
     max-width: 100% !important;
     height: auto !important;
     max-height: none !important;
-    margin: 0 auto !important;
+    margin: 0 auto 20px auto !important;
     overflow-y: visible !important;
     padding: 10px !important;
   }
 
-  /* Las tarjetas internas flotan hermosas sobre el fondo */
+  /* Hacer las tarjetas más compactas, delicadas y con buen margen */
   .card-section {
-    background: rgba(255, 255, 255, 0.85) !important; /* Un poquito más opaca para que se lea bien */
+    background: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(8px);
-    border-radius: 25px;
-    padding: 30px 15px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 25px rgba(180, 120, 130, 0.2);
+    border-radius: 20px !important;
+    padding: 20px 15px !important;
+    margin-bottom: 20px !important;
+    min-height: auto !important;
   }
 
-  /* Asegurar que los corazones y el fondo se vean en todo el alto de la página */
+  /* Achicar un poco las fuentes gigantes en celu para que no se corten */
+  .subtitle-tag {
+    font-size: 4.5rem !important;
+  }
+
+  .title-section {
+    font-size: 1.5rem !important;
+  }
+
+  .intro-text, .event-info p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Asegurar que las animaciones de fondo y corazones cubran todo el alto */
   .floating-hearts-container, body::before {
     height: 100% !important;
-    min-height: 100vh;
+    min-height: 100vh !important;
   }
 
-  /* El patito se acomoda elegante abajo a la derecha de la pantalla */
+  /* El patito queda flotando libre a un costado sin pisar textos */
   .goose-decor {
     position: fixed !important;
-    bottom: 15px !important;
+    bottom: 50px !important;
     right: 10px !important;
-    width: 90px !important;
+    width: 80px !important;
     z-index: 99 !important;
+  }
+
+  /* Acomodar el footer abajo de todo de manera limpia y sin pisar nada */
+  .bottom-footer {
+    position: relative !important;
+    bottom: auto !important;
+    width: 88% !important;
+    max-width: 100% !important;
+    margin: 20px auto 0 auto !important;
+    border-radius: 15px !important;
+    background-color: rgba(242, 214, 220, 0.95) !important;
+    box-sizing: border-box;
   }
 }
