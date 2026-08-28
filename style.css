@@ -842,3 +842,59 @@ body::before {
     background-color: #f5d6dc;
   }
 }
+
+/* La tarjeta grande principal translúcida */
+/* Tarjeta de contador independiente con fondo translúcido propio */
+.card-contador {
+  position: relative; 
+  background: rgba(255, 255, 255, 0.18) !important; /* Transparencia deseada para ver los corazones */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.9) !important; /* Bordes blancos bien claros */
+  box-shadow: 0 8px 32px 0 rgba(180, 120, 130, 0.15);
+  padding: 25px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Estructura interna de las cajas del contador */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.countdown-box {
+  background: #fdf5f6;
+  border: 1px solid #e0c3cb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-width: 65px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.countdown-number {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #8c5e65;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  color: #7a686b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.countdown-subtext {
+  font-size: 0.9rem;
+  color: #554043;
+  margin-top: 5px;
+  font-style: italic;
+}
