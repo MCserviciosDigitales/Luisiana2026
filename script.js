@@ -19,12 +19,12 @@ function toggleAudio() {
   }
 }
 /* ==========================================
-   MODAL DE INSTAGRAM / PRESENTACIÓN
+   MODAL DE INSTAGRAM (APERTURA Y COPIADO)
    ========================================== */
 window.abrirMiModal = function() {
   const modal = document.getElementById("miModalWeb");
   if (modal) {
-    modal.style.display = "flex";
+    modal.style.setProperty('display', 'flex', 'important');
   }
 };
 
@@ -33,6 +33,25 @@ window.cerrarMiModal = function() {
   if (modal) {
     modal.style.display = "none";
   }
+};
+
+window.copiarUsuarioInsta = function() {
+  const spanUser = document.getElementById("insta-username");
+  if (!spanUser) return;
+  
+  const textoACopiar = spanUser.textContent.trim();
+  
+  navigator.clipboard.writeText(textoACopiar).then(() => {
+    const aviso = document.getElementById("avisoCopiado");
+    if (aviso) {
+      aviso.style.opacity = "1";
+      setTimeout(() => {
+        aviso.style.opacity = "0";
+      }, 2500);
+    }
+  }).catch(err => {
+    console.error("Error al copiar el usuario: ", err);
+  });
 };
 
 // Cerrar si hacen clic fuera de la cajita blanca
@@ -173,7 +192,7 @@ function enviarRSVPWhatsApp(event) {
     const telefono = "5493513765962"; 
 
     // 3. Armamos el texto ordenado que te va a llegar al chat
-    let texto = `¡Hola! Soy *${nombre}*.%0A`;
+    let texto = `¡Hola Clara! Me llamo *${nombre}* y te escribo a través de la web de Luisiana.%0A%0A`;
     texto += `Respuesta: *${asistencia}*.%0A`;
     texto += `Cantidad de asistentes: *${personas}* persona(s).`;
     

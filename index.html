@@ -248,7 +248,7 @@
             </div>
 
             <p class="countdown-subtext">
-              ¡Para celebrar juntos este gran día! 
+              ¡Para celebrar juntos este gran día!
             </p>
           </div>
         </section>
@@ -372,9 +372,13 @@
           >
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://wa.me/3515911147" target="_blank" title="WhatsApp"
-            ><i class="fa-brands fa-whatsapp"></i
-          ></a>
+          <a
+            href="https://wa.me/3515911147?text=Hola%20Mariana,%20me%20contacto%20a%20trav%C3%A9s%20de%20la%20web%20de%20Luisiana"
+            target="_blank"
+            title="WhatsApp"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </div>
         <span class="footer-text">
           Diseño por
@@ -409,19 +413,37 @@
           <i class="fa-brands fa-instagram"></i>
         </div>
         <h3 class="modal-titulo">¡Seguime en Instagram!</h3>
-        <p class="modal-texto">Descubrí todos mis trabajos en mi Web.</p>
+        <p class="modal-texto">Copia mi usuario para buscarme más fácil.</p>
+
         <div class="modal-copy-box">
           <span id="insta-username" class="modal-username"
             >mc.serviciosdigitales</span
           >
         </div>
-        <a
-          href="https://instagram.com/tu_usuario_real"
-          target="_blank"
+        <!-- Botón transformado para copiar con tu clase existente -->
+        <button
+          onclick="window.copiarUsuarioInsta()"
           class="btn-action modal-btn-perfil"
+          style="border: none; cursor: pointer"
         >
-          Visitar Perfil
-        </a>
+          Copiar usuario
+        </button>
+
+        <!-- Mensaje de aviso de copiado -->
+        <span
+          id="avisoCopiado"
+          style="
+            display: block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #8c5e65;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-weight: bold;
+          "
+        >
+          ¡Usuario copiado con éxito!
+        </span>
       </div>
     </div>
 
