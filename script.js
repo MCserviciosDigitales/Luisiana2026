@@ -114,18 +114,24 @@ window.addEventListener("click", (e) => {
 /* ==========================================
    MODAL DE MAPA (GOOGLE MAPS)
    ========================================== */
-window.abrirMapaModal = function() {
-  console.log("LOG JS: Abriendo mapa de Acapulco Park...");
+window.abrirMapaModal = function(urlMapa, tituloLugar) {
+  console.log("LOG JS: Abriendo mapa de " + tituloLugar + "...");
   const modal = document.getElementById("modalMapaIframe");
   const iframe = document.getElementById("iframeMapa");
+  const tituloSpan = document.getElementById("tituloModalMapa");
   
   if (!modal || !iframe) {
     console.error("ERROR JS: No se encontró el modal o el iframe del mapa.");
     return;
   }
 
-  // Enlace oficial de inserción de Google Maps para Acapulco Park (Cabo Fariña, Córdoba)
-  iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.587!2d-64.18!3d-31.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a3e06bf50391%3A0x34ed2f4d34454799!2sAcapulco%20Park!5e0!3m2!1ses-419!2sar!4v1";
+  // Cambia el título dinámicamente arriba en el header del modal
+  if (tituloSpan) {
+    tituloSpan.textContent = tituloLugar + " - Ubicación";
+  }
+
+  // Carga la URL correspondiente
+  iframe.src = urlMapa;
   
   modal.style.setProperty('display', 'flex', 'important');
   console.log("LOG JS: Mapa abierto con éxito.");
@@ -180,3 +186,36 @@ function enviarRSVPWhatsApp(event) {
     const urlWsp = `https://wa.me/${telefono}?text=${texto}`;
     window.open(urlWsp, '_blank');
 }
+
+/* ==========================================
+   CONTADOR REGRESIVO
+   ========================================== */
+function actualizarContador() {
+  // Fecha objetivo del evento: 11 de Octubre de 2026 a las 12:30 hs
+  const fechaEvento = new Date("2026-10-11T12:30:00").getTime();
+  const ahora = new Date().getTime();
+  const diferencia = fechaEvento - ahora;
+
+  if (diferencia < 0) {
+    document.querySelector(".countdown-section").innerHTML = "<h3 class='section-title'>¡L llegó el gran día! 🎉</h3>";
+    return;
+  }
+
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+
+  const elDias = document.getElementById("days");
+  const elHoras = document.getElementById("hours");
+  const elMinutos = document.getElementById("minutes");
+
+  if (elDias && elHoras && elMinutos) {
+    elDias.textContent = String(dias).padStart(2, '0');
+    elHoras.textContent = String(horas).padStart(2, '0');
+    elMinutos.textContent = String(minutos).padStart(2, '0');
+  }
+}
+
+// Ejecutar al cargar y actualizar cada minuto
+setInterval(actualizarContador, 60000);
+actualizarContador();
