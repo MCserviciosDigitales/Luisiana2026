@@ -150,3 +150,33 @@ window.addEventListener("click", (e) => {
     window.cerrarMapaModal();
   }
 });
+
+/* ==========================================
+   FUNCIÓN PARA ENVIAR formulario POR WHATSAPP
+   ========================================== */
+function enviarRSVPWhatsApp(event) {
+    event.preventDefault(); // Evita que la página se recargue sola
+
+    // 1. Capturamos los valores que escribió el invitado en cada campo
+    const nombre = document.getElementById('rsvp-nombre').value;
+    const personas = document.getElementById('rsvp-personas').value;
+    const asistencia = document.getElementById('rsvp-asistencia').value;
+    const mensaje = document.getElementById('rsvp-mensaje').value;
+
+    // 2. TU NÚMERO DE WHATSAPP (Reemplazá esto con tu característica y número real, ej: 549351...)
+    const telefono = "5493513765962"; 
+
+    // 3. Armamos el texto ordenado que te va a llegar al chat
+    let texto = `¡Hola! Soy *${nombre}*.%0A`;
+    texto += `Respuesta: *${asistencia}*.%0A`;
+    texto += `Cantidad de asistentes: *${personas}* persona(s).`;
+    
+    // Si escribieron un mensaje opcional, lo agregamos; si no, lo omitimos
+    if (mensaje.trim() !== "") {
+        texto += `%0AMensaje: "${mensaje}"`;
+    }
+
+    // 4. Creamos el link oficial de WhatsApp y lo abrimos en una pestaña nueva
+    const urlWsp = `https://wa.me/${telefono}?text=${texto}`;
+    window.open(urlWsp, '_blank');
+}

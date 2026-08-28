@@ -49,7 +49,7 @@ html, body {
    ========================================== */
 .scroll-content {
   position: absolute;
-  top: 90px; /* Ajustado proporcionalmente dentro del viewport */
+  top: 90px;
   left: 50%;
   transform: translateX(-50%);
   width: 86vw;
@@ -58,11 +58,11 @@ html, body {
   max-height: 680px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 20px 15px;
+  padding: 20px 15px 120px 15px; /* <--- CLAVE: El último valor (80px) le da aire abajo para que la última card nunca quede tapada ni cortada */
   box-sizing: border-box;
   z-index: 2;
   scrollbar-width: none;
-  -webkit-overflow-scrolling: touch; /* Scroll fluido en dispositivos móviles */
+  -webkit-overflow-scrolling: touch;
 }
 
 .scroll-content::-webkit-scrollbar {
@@ -81,7 +81,46 @@ html, body {
   padding: 25px 20px;
   margin-bottom: 20px;
   text-align: center;
+  height: auto !important; /* <--- Asegura que la altura sea flexible según lo que contenga */
+  min-height: auto !important; /* <--- Evita que se fuercen tamaños grandes innecesarios */
 }
+
+/* 2. REGLAS EXCLUSIVAS PARA LOS CAMPOS DEL FORMULARIO (Se suman para que los inputs se vean lindos y no rompan nada) */
+.card-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.card-section .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /*espacio entre la etiqueta y el input */
+}
+
+.card-section label {
+  font-size: 0.85rem;
+  color: #665255;
+  font-weight: 600;
+}
+
+.card-section input,
+.card-section select,
+.card-section textarea {
+  width: 100%;
+  padding: 6px 10px; /*ACHICA EL ALTO*/
+  border-radius: 12px;
+  border: 1px solid rgba(180, 120, 130, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  color: #554043;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+}
+
 
 /* ==========================================
    4. TIPOGRAFÍA Y ELEMENTOS
@@ -183,14 +222,6 @@ html, body {
   font-size: 0.95rem;
 }
 
-.divider {
-  border: 0;
-  height: 1px;
-  background: #f0d5d8;
-  width: 80%;
-  margin: 15px auto;
-}
-
 .btn-action {
   display: inline-block;
   background-color: #d8969f;
@@ -241,13 +272,16 @@ html, body {
    6. SCROLL SNAP
    ========================================== */
 .snap-container {
-  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  height: 100%;
   scroll-behavior: smooth;
 }
 
 .snap-section {
   scroll-snap-align: start;
-  min-height: 70vh; 
+  min-height: auto !important; 
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -692,6 +726,20 @@ body::before {
     margin-bottom: 20px !important;
     min-height: auto !important;
   }
+
+  .card-info {
+  position: relative; 
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(180, 120, 130, 0.15);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  min-height: auto !important;
+}
 
   /* Achicar un poco las fuentes gigantes en celu para que no se corten */
   .subtitle-tag {
