@@ -238,3 +238,11 @@ function actualizarContador() {
 // Ejecutar al cargar y actualizar cada minuto
 setInterval(actualizarContador, 60000);
 actualizarContador();
+
+//======================
+window.copiarAlias = function() {
+  const aliasSpan = document.getElementById("alias-texto").textContent;
+  navigator.clipboard.writeText(aliasSpan).then(() => {
+    alert("¡Alias copiado al portapapeles! ✨");
+  });
+};
